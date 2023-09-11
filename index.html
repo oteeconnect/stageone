@@ -1,34 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="ÜTF-8">
-    <meta name="viewport" content=""width=device-width, initial-scale="1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>My Personal Web Page</title>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Stage 1</title>
+  </head>
+  <body>
+    <h1 data-testid="slackUserName" style="font-family: 'Arial', sans-serif; color: #333; text-align: center;">oteeconnect</h1>
+    <img data-testid="slackDisplayImage" src="https://ca.slack-edge.com/T05FFAA91JP-U05RAJ28TJ9-d1948509b0f9-512" alt="oteeconnect" style="display: block; margin: 0 auto; width: 300px; height: 300px; max-width: 100%; border-radius: 10px; box-shadow: 0px 2px 5px #888;"></img>
+    <p id="day" data-testid="currentDayOfTheWeek" style="font-size: 18px; color: #666; text-align: center;"><p>
+    <p id="time" data-testid="currentUTCTime" style="font-size: 18px; color: #666; text-align: center;"><p>
+    <p data-testid="myTrack" style="font-size: 18px; color: #666; text-align: center;">Frontend<p>
+    <p style="text-align: center;">
+      <a href="https://github.com/LeRoiCodes/hng-stage1" data-testid="githubURL" style="text-decoration: none; color: #0073e6; font-weight: bold;">Github URL<a>
+    </p>
 
-</head>
-<body>
-        <h1 data-testid="oteeconnect">Otobong Inyang</h1>
-        <img src="https://ca.slack-edge.com/T05FFAA91JP-U05RAJ28TJ9-d1948509b0f9-512" alt="oteeconnect" data-testid="slackDisplayImage">
-        <p data-testid="CurrentDayOfTheWeek">Monday</p>
-        <p data-testid="currentUTCTime">1694447414549</p>
-        <p data-testid="myTrack">Frontend Developer</p>
-        <a href="https://github.com/oteeconnect/stageone.git" data-testid="githubURL">My GitHub Repository</a>
+      <script>
+        // JavaScript code to display current day and UTC time
+        const currentDayElement = document.getElementById("day");
+        const currentTimeElement = document.getElementById("time");
 
-        <script>
-            function getCurrentDayOfTheWeek(){
-                const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-                const currentDate = new Date();
-                const dayIndex = currentDate.getUTCDay();
-                return daysOfWeek[dayIndex];
-            }
-    
-            function getCurrentUTCTime() {
-                return Date.now();
-            }
-    
-            document.querySelector('[data-testid="currentDayOfTheWeek"]').textContent = getCurrentDayOfWeek();
-            document.querySelector('[data-testid="currentUTCTime"]').textContent = getCurrentUTCTime();
-        </script>
-</body>
+        // Array to map day index to day names
+        const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+        // Get current date and time
+        const currentDate = new Date();
+        const currentUTC = new Date().toUTCString();
+
+        // Get the current day of the week
+        const currentDayIndex = currentDate.getDay();
+        const currentDayName = daysOfWeek[currentDayIndex];
+
+        // Display the current day and UTC time
+        currentDayElement.textContent = currentDayName;
+        currentTimeElement.textContent = currentUTC;
+    </script>
+  </body>
 </html>
