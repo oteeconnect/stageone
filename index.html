@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="ÜTF-8">
+    <meta name="viewport" content=""width=device-width, initial-scale="1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>My Personal Web Page</title>
+
+</head>
+<body>
+        <h1 data-testid="oteeconnect">Otobong Inyang</h1>
+        <img src="https://ca.slack-edge.com/T05FFAA91JP-U05RAJ28TJ9-d1948509b0f9-512" alt="oteeconnect" data-testid="slackDisplayImage">
+        <p data-testid="CurrentDayOfTheWeek">Monday</p>
+        <p data-testid="currentUTCTime">1694447414549</p>
+        <a href="https://github.com/oteeconnect/hngstageonetaskdone" data-testid="githubURL">My GitHub Repository</a>
+
+        <script>
+            function getCurrentDayOfTheWeek(){
+                const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                const currentDate = new Date();
+                const dayIndex = currentDate.getUTCDay();
+                return daysOfWeek[dayIndex];
+            }
+    
+            function getCurrentUTCTime() {
+                return Date.now();
+            }
+    
+            document.querySelector('[data-testid="currentDayOfTheWeek"]').textContent = getCurrentDayOfWeek();
+            document.querySelector('[data-testid="currentUTCTime"]').textContent = getCurrentUTCTime();
+        </script>
+</body>
+</html>
